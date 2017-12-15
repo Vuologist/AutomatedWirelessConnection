@@ -7,21 +7,13 @@ REM 6DSASTS111222LS
 REM should pull L
 echo %computername%
 set device=%computername:~-2%
-rem echo ON
+REM echo ON
 set device2=%device:~0,1%
 if "%device2%"=="L" (
-    echo Is Laptop
+    echo is laptop
 	REM add WiFi
-	
-	
-	
-	
-	
-	
+	netsh wlan add profile filename="wifi-guest.xml" interface="Wi-Fi" user=current
+	netsh wlan connect name="GUEST" interface="Wi-Fi"
 ) else (
-	echo Not Laptop
+	echo not laptop
 )
-ECHO OFF
-REM if %device% == "L" (
-REM   netsh wlan connect ssid="Guest" name="Guest" interface="Wi-Fi"
-REM )
